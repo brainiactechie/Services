@@ -1,0 +1,24 @@
+﻿@page "/postlist"
+@inherits PostListBase
+
+
+@if (Posts != null)
+{
+
+   <ul class="">
+       @foreach (var post in Posts)
+       {
+           var link = "/post/"+post.ID;
+           <li class="badge badge-success d-block my-1 py-2 text-white" >
+              <NavLink  class="text-white"  href="@link">
+                        @post.Title
+              </NavLink> 
+           </li>
+       }
+   </ul>
+
+}
+
+
+
+

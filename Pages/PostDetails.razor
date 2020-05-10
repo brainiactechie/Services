@@ -1,0 +1,57 @@
+@page "/post/{PostId}"
+@using DeepInServices.models
+
+
+
+
+@if (Post !=null)
+{
+    <div class="row">
+    <div class="col-12">
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td>Id </td>
+                    <td>@Post.ID</td>
+                </tr>
+                <tr>
+                      <td>Title </td>
+                    <td>@Post.Title</td>
+                </tr>
+                <tr>
+                      <td>Writer</td>
+                      <td>@PostedBy</td>
+                </tr>
+                <tr>
+                    <td>Content </td>
+                    <td>@Post.Body</td>
+                </tr>
+            </tbody>
+        </table>
+<NavLink class="btn btn-success" href="postlist">
+    Back To List
+</NavLink>
+    </div>
+
+</div>
+}
+
+
+
+
+
+@code {
+    public Post Post { get; set; }
+    [Inject]
+    public services.IPostService postService { get; set; }
+    [Parameter]
+    public string PostId { get; set; }
+    public User User { get; set; }
+    public string PostedBy { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        Post = await postService.GetPost(int.Parse(PostId));
+        User =  await postService.GetUser(Post.UserID);
+        PostedBy = User == null ? "User Not Found" : User.Name;
+    }
+}
