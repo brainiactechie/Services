@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
+@inject IJSRuntime jsRuntime
+
+
+<canvas id="@CanId">
+
+</canvas>
+
+
+@code {
+    string CanId = "can" + Guid.NewGuid().ToString().Substring(0, 4);
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await jsRuntime.InvokeVoidAsync("drawChart.pieChart", CanId);
+    }
+}

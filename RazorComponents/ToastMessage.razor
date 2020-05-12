@@ -1,0 +1,20 @@
+
+@inject IJSRuntime js
+
+<button class="btn btn-success" @onclick="ShowSuccess" > Success </button>
+
+<button class="btn btn-danger" @onclick="ShowError">Error</button>
+
+
+@code {
+    public async Task ShowSuccess()
+    {
+        await js.InvokeVoidAsync("toast.success", "Sucess Messgae ", "Sucess Title");
+        await js.InvokeVoidAsync("myalert.success", "Sucess Messgae ", "Sucess Title");
+    }
+    public async Task ShowError()
+    {
+        await js.InvokeVoidAsync("toast.error", "Error Messgae", "Error Title");
+        await js.InvokeVoidAsync("myalert.error", "Error Messgae", "Error Title");
+    }
+}

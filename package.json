@@ -1,0 +1,24 @@
+{
+  "name": "deepinservices",
+  "version": "1.0.0",
+  "description": "\"# Services\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brainiactechie/Services.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brainiactechie/Services/issues"
+  },
+  "homepage": "https://github.com/brainiactechie/Services#readme",
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "sweetalert2": "^9.10.13",
+    "toastr": "^2.1.4"
+  }
+}
